@@ -1,6 +1,10 @@
 {
   "name": "@realm-ui/angular",
   "version": "0.0.0",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "ng lint"
+  },
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"
@@ -8,5 +12,12 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^3.4.1",
+    "prettier-eslint": "^16.3.0"
+  }
 }
