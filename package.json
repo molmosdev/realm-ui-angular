@@ -1,13 +1,13 @@
 {
   "name": "@realm-ui/angular",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "format": "prettier --write .",
     "lint": "ng lint"
   },
   "peerDependencies": {
-    "@angular/common": "^18.0.0",
-    "@angular/core": "^18.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
