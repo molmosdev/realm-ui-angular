@@ -19,7 +19,7 @@ export class Tabs implements OnInit {
   selectedIndex = signal<number>(-1);
   selectedValue = model<string | null>(null);
   highlightedIndex = signal<number>(-1);
-  changeEmitters = output<string>();
+  changesEmitter = output<string>();
   lastSelectedValue: string | null = null;
 
   constructor() {
@@ -44,7 +44,7 @@ export class Tabs implements OnInit {
         this.selectTab(tabEmitted, index);
         this.highlightTab(index);
         this.handleTabStates();
-        this.changeEmitters.emit(tab.value());
+        this.changesEmitter.emit(tab.value());
       });
     });
   }

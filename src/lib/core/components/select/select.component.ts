@@ -33,7 +33,7 @@ export class Select {
   optionsWrapper = viewChild<ElementRef>('optionsWrapper');
   lastSelectedValue: string | null = null;
   optionsMaxHeight = input<number>(200);
-  changeEmitters = output<string | null>();
+  changesEmitter = output<string | null>();
   positioning = input<'up' | 'down'>('down');
   noResultsMessage = input<string>('No results found');
 
@@ -100,7 +100,7 @@ export class Select {
     this.lastSelectedValue = option.value();
     this.selectedContent.set(option.el.nativeElement.innerText.trim());
     this.selectedIndex.set(index);
-    this.changeEmitters.emit(option.value());
+    this.changesEmitter.emit(option.value());
   }
 
   /**
@@ -143,7 +143,7 @@ export class Select {
         this.lastSelectedValue = null;
         this.selectedContent.set(null);
         this.selectedIndex.set(-1);
-        this.changeEmitters.emit(null);
+        this.changesEmitter.emit(null);
         this.highlightOption(-1);
         this.handleOptionsStates();
       }
