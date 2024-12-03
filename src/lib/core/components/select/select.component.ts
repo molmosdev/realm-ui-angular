@@ -38,18 +38,13 @@ export class Select {
   noResultsMessage = input<string>('No results found');
 
   constructor(private elementRef: ElementRef) {
-    effect(
-      () => {
-        if (this.optionsWrapper()) {
-          this.handleScrollToSelectedOptionOnOpen();
-          this.handleOptionSelection();
-        }
-        this.handleExternalSelectedValue();
-      },
-      {
-        allowSignalWrites: true,
+    effect(() => {
+      if (this.optionsWrapper()) {
+        this.handleScrollToSelectedOptionOnOpen();
+        this.handleOptionSelection();
       }
-    );
+      this.handleExternalSelectedValue();
+    });
   }
 
   /**

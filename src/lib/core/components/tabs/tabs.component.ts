@@ -23,16 +23,11 @@ export class Tabs implements OnInit {
   lastSelectedValue: string | null = null;
 
   constructor() {
-    effect(
-      () => {
-        this.handleTabSelection();
-        this.handleExternalSelectedValue();
-        this.handleScrollToSelectedTab();
-      },
-      {
-        allowSignalWrites: true,
-      }
-    );
+    effect(() => {
+      this.handleTabSelection();
+      this.handleExternalSelectedValue();
+      this.handleScrollToSelectedTab();
+    });
   }
 
   /**

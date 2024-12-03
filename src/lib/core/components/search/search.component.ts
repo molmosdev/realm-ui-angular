@@ -46,18 +46,13 @@ export class Search {
     private elementRef: ElementRef,
     private utilsService: UtilsService
   ) {
-    effect(
-      () => {
-        if (this.optionsWrapper()) {
-          this.handleScrollToSelectedOptionOnOpen();
-          this.handleOptionSelection();
-        }
-        this.handleExternalSelectedValue();
-      },
-      {
-        allowSignalWrites: true,
+    effect(() => {
+      if (this.optionsWrapper()) {
+        this.handleScrollToSelectedOptionOnOpen();
+        this.handleOptionSelection();
       }
-    );
+      this.handleExternalSelectedValue();
+    });
   }
 
   /**
