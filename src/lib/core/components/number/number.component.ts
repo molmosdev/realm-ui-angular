@@ -1,7 +1,7 @@
 import {
   Component,
-  effect,
   input,
+  linkedSignal,
   LOCALE_ID,
   model,
   output,
@@ -19,7 +19,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class Number {
   value = model<number | null>(null);
-  displayValue: string | null = null;
+  displayValue = linkedSignal<string | null>(() =>
+    this.formatValue(this.value())
+  );
   label = input<string | undefined>(undefined);
   error = input<boolean>(false);
   valueType = input<'integer' | 'decimal' | 'currency' | 'percentage'>(
@@ -32,9 +34,6 @@ export class Number {
 
   constructor(private currencyPipe: CurrencyPipe) {
     registerLocaleData(localeEs, 'es-ES');
-    effect(() => {
-      this.displayValue = this.formatValue(this.value());
-    });
   }
 
   /**
@@ -58,7 +57,7 @@ export class Number {
     this.debounceTimer = setTimeout(() => {
       const numericValue = this.parseValue(newValue);
       this.value.set(numericValue);
-      this.displayValue = this.formatValue(numericValue);
+      this.displayValue.set(this.formatValue(numericValue));
       this.changeEmitter.emit(numericValue);
     }, 500);
   }
