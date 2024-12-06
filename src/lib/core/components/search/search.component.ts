@@ -175,7 +175,19 @@ export class Search {
         break;
       case 'Escape':
         event.preventDefault();
+        if (!this.selectedValue() && this.query()) {
+          this.query.set(null);
+        }
         this.isOpen.set(false);
+        break;
+      case 'Tab':
+        if (this.isOpen()) {
+          event.preventDefault();
+          if (!this.selectedValue() && this.query()) {
+            this.query.set(null);
+          }
+          this.isOpen.set(false);
+        }
         break;
     }
   }
