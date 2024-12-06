@@ -168,6 +168,10 @@ export class Select {
         event.preventDefault();
         this.isOpen.set(false);
         break;
+      case 'Tab':
+        event.preventDefault();
+        this.isOpen.set(false);
+        break;
     }
   }
 
