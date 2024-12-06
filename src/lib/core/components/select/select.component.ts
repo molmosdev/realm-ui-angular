@@ -169,8 +169,10 @@ export class Select {
         this.isOpen.set(false);
         break;
       case 'Tab':
-        event.preventDefault();
-        this.isOpen.set(false);
+        if (this.isOpen()) {
+          event.preventDefault();
+          this.isOpen.set(false);
+        }
         break;
     }
   }
