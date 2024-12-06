@@ -22,7 +22,6 @@
     {{ selectedContent() }}
   }
   <div
-    tabindex="0"
     class="right-button"
     [ngClass]="{ error: error(), clearable: clearable() && selectedContent() }"
     (click)="clearable() && selectedContent() && clearSelection($event)">

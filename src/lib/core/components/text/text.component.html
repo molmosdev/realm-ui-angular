@@ -18,7 +18,7 @@
   </label>
 }
 @if ((clearable() && displayValue()) || searching()) {
-  <div class="right-button" (click)="clear()" tabindex="0">
+  <div class="right-button" (click)="clear()">
     @if (searching()) {
       <r-spinner [active]="true" [size]="15" color="var(--foreground)" />
     } @else if (clearable() && displayValue()) {
