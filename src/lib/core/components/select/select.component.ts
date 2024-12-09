@@ -52,7 +52,7 @@ export class Select {
    */
   handleScrollToSelectedOptionOnOpen() {
     if (this.selectedIndex() !== -1) {
-      this.scrollToOption(this.selectedIndex(), 'instant');
+      this.scrollToOption(this.selectedIndex(), 'instant', 'center');
     }
   }
 
@@ -60,12 +60,17 @@ export class Select {
    * Scroll to a specific option in the dropdown.
    * @param {number} index - The index of the option to scroll to.
    * @param {string} behavior - The scroll behavior ('instant' or 'smooth').
+   * @param {string} block - The block alignment ('start', 'center', 'end', or 'nearest').
    */
-  scrollToOption(index: number, behavior: string): void {
+  scrollToOption(
+    index: number,
+    behavior: string,
+    block: string = 'nearest'
+  ): void {
     const optionElements = this.options();
     if (optionElements[index]) {
       optionElements[index].el.nativeElement.scrollIntoView({
-        block: 'nearest',
+        block: block,
         behavior: behavior,
       });
     }
