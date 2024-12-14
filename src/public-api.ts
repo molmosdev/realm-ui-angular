@@ -65,3 +65,6 @@ export * from './lib/core/components/user/user.component';
 export * from './lib/core/components/vertical-nav/vertical-nav.component';
 export * from './lib/core/components/vertical-nav/components/vertical-nav-group/vertical-nav-group.component';
 export * from './lib/core/components/vertical-nav/components/vertical-nav-item/vertical-nav-item.component';
+
+/* InViewport */
+export * from './lib/core/directives/in-viewport.directive';
