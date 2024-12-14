@@ -5,7 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class InViewportService {
   elements = signal<Record<string, boolean>>({});
-  observer: IntersectionObserver;
+  observer!: IntersectionObserver;
 
   /**
    * Register an element to be tracked by the service.
