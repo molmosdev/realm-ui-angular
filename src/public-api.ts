@@ -68,3 +68,4 @@ export * from './lib/core/components/vertical-nav/components/vertical-nav-item/v
 
 /* InViewport */
 export * from './lib/core/directives/in-viewport.directive';
+export * from './lib/core/services/in-viewport.service';

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, inject, input, OnInit } from '@angular/core';
-import { InViewportService } from '../../shared/services/in-viewport.service';
+import { InViewportService } from '../services/in-viewport.service';
 
 @Directive({
   selector: '[r-in-viewport]',
