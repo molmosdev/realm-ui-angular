@@ -1,10 +1,17 @@
-import { Directive, ElementRef, inject, input, OnInit } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  inject,
+  input,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { InViewportService } from '../services/in-viewport.service';
 
 @Directive({
   selector: '[r-in-viewport]',
 })
-export class InViewportDirective implements OnInit {
+export class InViewportDirective implements OnInit, OnDestroy {
   inViewportId = input.required<string>();
   inViewportInitialVisibility = input<boolean>(false);
   el = inject(ElementRef);
@@ -12,6 +19,10 @@ export class InViewportDirective implements OnInit {
 
   ngOnInit(): void {
     this.initializeRegistration();
+  }
+
+  ngOnDestroy(): void {
+    this.inViewportService.unregisterElement(this.inViewportId());
   }
 
   /**

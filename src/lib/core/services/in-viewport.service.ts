@@ -33,6 +33,17 @@ export class InViewportService {
   }
 
   /**
+   * Unregister an element from being tracked by the service.
+   * @param {string} id - The id of the element to unregister.
+   */
+  unregisterElement(id: string): void {
+    if (id in this.elements()) {
+      delete this.elements()[id];
+      this.observer.disconnect();
+    }
+  }
+
+  /**
    * Update the visibility of an element.
    * @param {string} id - The id of the element to update.
    * @param {boolean} isVisible - The new visibility state of the element.
