@@ -12,5 +12,6 @@ import { fadeInOutTrigger } from '../../../shared/animations/animations';
 export class Button {
   type = input<'primary' | 'secondary' | 'ghost'>('primary');
   loading = input<boolean>(false);
+  disabled = input<boolean>(false); // Nuevo input para controlar el estado disabled
   clickEmitter = output<void>();
 }

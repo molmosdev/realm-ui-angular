@@ -1,4 +1,8 @@
-<button [ngClass]="type()" tabindex="0" (click)="clickEmitter.emit()">
+<button
+  [ngClass]="type()"
+  [disabled]="disabled()"
+  tabindex="0"
+  (click)="clickEmitter.emit()">
   @if (loading()) {
     <r-spinner
       [active]="loading()"
